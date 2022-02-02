@@ -43,7 +43,7 @@ const functions:arr = [
 var e:number = Math.exp(1);
 var pi:number = Math.PI;
 var store:number = 0;
-function doubleSymbol(num:string):void {
+function doubleSymbol<T extends string>(num:T):void {
     if(symbols.includes(display.innerText.slice(-1))){
         if (display.innerText.slice(-2,-1) == "*") {
             back();
@@ -62,9 +62,9 @@ function doubleSymbol(num:string):void {
 function btn(num:string):void {
     if(isNaN(Number(num))){
         if(symbols.includes(num)) {
-            doubleSymbol(num);
+            doubleSymbol<string>(num);
         }else if (num == "**") {
-            doubleSymbol("**");
+            doubleSymbol<string>("**");
         }
         else if (num == "(" || num == ")") {
             if (symbols.includes(display.innerText.slice(-1)) ) {
